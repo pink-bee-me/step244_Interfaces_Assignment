@@ -9,28 +9,29 @@ using step244_Interfaces_Assignment;
 
 namespace step44_Interface_Assignment
 {
-   public class Employee : Person, IQuittable, IUserInput
+    public class Employee : Person, IQuittable, IUserInput
 
-   {
-       public Employee()
-       {
-       }
+    {
+        public Employee()
+        {
+        }
 
-       public Employee(string firstName, string lastName)
-       {
+        public Employee(string firstName, string lastName)
+        {
 
-       }
+        }
 
-       public Employee(int employeeID, string FirstName, string LastName, string ActiveStatus, DateTime entryDate)
-       {
-           this.EmployeeID = employeeID;
-           this.FirstName = " ";
+        public Employee(int employeeID, string FirstName, string LastName, string ActiveStatus, DateTime entryDate)
+        {
+            this.EmployeeID = employeeID;
+            this.FirstName = " ";
             this.LastName = " ";
             this.ActiveStatus = " ";
             this.EntryDate = entryDate;
             this.CreateEmployeeID();
-            this.EmployeeEntry(); 
+            this.EmployeeEntry();
             this.GetName();
+            this.Quit();
         }
 
         public int EmployeeID { get; set; }
@@ -58,9 +59,9 @@ namespace step44_Interface_Assignment
         }
 
         public void EmployeeEntry()
-        { 
+        {
             var entryDate = DateTime.Now;
-            Console.WriteLine("\n Entry Date: " + entryDate );
+            Console.WriteLine("\n Entry Date: " + entryDate);
         }
 
         public void GetName()
@@ -77,28 +78,15 @@ namespace step44_Interface_Assignment
 
         public override void SayName()
         {
-            var fullName = FirstName + " " + LastName; 
+            var fullName = FirstName + " " + LastName;
             Console.WriteLine(fullName + " has been entered into the system");
-            }
         }
 
 
-        
+
+
         //    new Employee(){EmployeeID,firstName,lastName, activeStatus, entryDate}
-          //  }
-
-         
-
-
-
-        }
-
-        public override void SayName()
-        {
-            Console.WriteLine("You have added a new Person Object to the Employee Class.");
-            base.SayName();
-            
-        }
+        //  }
 
         public void Quit()
         {
@@ -119,5 +107,6 @@ namespace step44_Interface_Assignment
             Console.ReadLine();
         }
     }
+}
 
 
