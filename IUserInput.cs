@@ -7,21 +7,12 @@ using System.Threading.Tasks;
 namespace step244_Interfaces_Assignment
 {
     interface IUserInput
-    { 
-        void EnterEmployee()
-            {
-                Console.WriteLine("Entry Status: (Enter 1 for \"new\"; 2 for \"existing\")");
-                string employeeStatus = Console.ReadLine();
-
-                Console.WriteLine("Enter Fist Name: ");
-                string firstName = Console.ReadLine();
+    {
+        void EmployeeEntry();
+        void GetName();
 
 
-                Console.WriteLine("Enter Last Name: ");
-                string lastName = Console.ReadLine();
-            }
-
-        }
     }
+    
 }
-}
+

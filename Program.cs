@@ -13,18 +13,19 @@ namespace step244_Interface_Assignment
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee
-            {
-                FirstName = "Sample",
-                LastName = "Student"
-            };
+            Employee employee = new Employee();
+
+            employee.FirstName = "Sample";
+            employee.LastName = "Student";
+        
             employee.SayName();
             Console.ReadLine();
              
             employee.Quit();
             Console.ReadLine();
 
-            employee.EmployeeEntry()
+        
+        Employee employee = new Employee(EmployeeID,)
 
         ;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using step244_Interface_Assignment;
@@ -10,42 +11,88 @@ namespace step44_Interface_Assignment
 {
    public class Employee : Person, IQuittable, IUserInput
 
-    {
-        public Employee()
-        {
-        Console.WriteLine("This is a Demo.");
+   {
+       public Employee()
+       {
+       }
+
+       public Employee(string firstName, string lastName)
+       {
+
+       }
+
+       public Employee(int employeeID, string FirstName, string LastName, string ActiveStatus, DateTime entryDate)
+       {
+           this.EmployeeID = employeeID;
+           this.FirstName = " ";
+            this.LastName = " ";
+            this.ActiveStatus = " ";
+            this.EntryDate = entryDate;
+            this.CreateEmployeeID();
+            this.EmployeeEntry(); 
+            this.GetName();
         }
 
-        
+        public int EmployeeID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ActiveStatus { get; set; }
+        public DateTime EntryDate { get; set; }
+
+
+        public int CreateEmployeeID()
+        {
+            List<Employee> employees = new List<Employee>();
+
+
+            Console.WriteLine("Employee Status: (Enter 1 for \"new\"; 2 for \"existing\")");
+            string employeeEntryNewOrNot = Console.ReadLine();
+            int i = 1;
+            if (employeeEntryNewOrNot == "1")
+            {
+                EmployeeID = i;
+                i++;
+                string ActiveStatus = "Active";
+                Console.WriteLine("\n New Employee ID: " + EmployeeID + "\n Employee Status: " + ActiveStatus);
+            }
+        }
 
         public void EmployeeEntry()
-        {
-            Console.WriteLine("Employee Status: (Enter 1 for \"new\"; 2 for \"existing\")");
-            string employeeStatus = Console.ReadLine();
+        { 
             var entryDate = DateTime.Now;
-            string dateActive = Convert.ToString(entryDate);
+            Console.WriteLine("\n Entry Date: " + entryDate );
+        }
+
+        public void GetName()
+        {
 
             Console.WriteLine("Enter Employee Fist Name: ");
-            string firstName = Console.ReadLine();
+            string FirstName = Console.ReadLine();
 
             Console.WriteLine("Enter Employee Last Name: ");
-            string lastName = Console.ReadLine();
+            string LastName = Console.ReadLine();
 
-        public List<string> ActiveEmployeeList = new List<string>(firstName, lastname, dateActive);
-            if (employeeStatus = "1")
-            {
+            SayName();
+        }
 
-
+        public override void SayName()
+        {
+            var fullName = FirstName + " " + LastName; 
+            Console.WriteLine(fullName + " has been entered into the system");
             }
-       public string FirstName = 
+        }
 
-       public string FirstName1
-       {
-           get => ;
-           set => FirstName = value;
-       }
-    }
+
         
+        //    new Employee(){EmployeeID,firstName,lastName, activeStatus, entryDate}
+          //  }
+
+         
+
+
+
+        }
+
         public override void SayName()
         {
             Console.WriteLine("You have added a new Person Object to the Employee Class.");
@@ -72,4 +119,5 @@ namespace step44_Interface_Assignment
             Console.ReadLine();
         }
     }
-}
+
+

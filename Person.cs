@@ -9,6 +9,7 @@ namespace step244_Interface_Assignment
    public abstract class Person
     {
         
+        
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
@@ -18,11 +19,12 @@ namespace step244_Interface_Assignment
             Console.WriteLine("Name of Person Added To System: " + fullName);
         }
 
-        
+
         
 
-            
-            
+
+
+
         }
     }
-}
+
