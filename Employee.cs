@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using step244_Interface_Assignment;
 using step244_Interfaces_Assignment;
 
-namespace step44_Interface_Assignment
+namespace step244_Interface_Assignment
 {
     public class Employee : Person, IQuittable, IUserInput
 
     {
+        
+
         public Employee()
         {
         }
@@ -20,78 +23,104 @@ namespace step44_Interface_Assignment
         {
 
         }
-
-        public Employee(int employeeID, string FirstName, string LastName, string ActiveStatus, DateTime entryDate)
+          
+        public Employee(string employeeID, string firstName, string lastName, string fullName, string activeStatus, string dateOfEntry)
         {
             this.EmployeeID = employeeID;
-            this.FirstName = " ";
-            this.LastName = " ";
-            this.ActiveStatus = " ";
-            this.EntryDate = entryDate;
-            this.CreateEmployeeID();
-            this.EmployeeEntry();
-            this.GetName();
-            this.Quit();
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.FullName = fullName;
+            this.ActiveStatus = activeStatus;
+            this.DateOfEntry = dateOfEntry;
         }
 
-        public int EmployeeID { get; set; }
+
+        public string EmployeeID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ActiveStatus { get; set; }
-        public DateTime EntryDate { get; set; }
+        public string DateOfEntry { get; set; }
+        public string FullName { get; set; }
 
 
-        public int CreateEmployeeID()
+       
+
+        public void CreateEmployeeID()
         {
-            List<Employee> employees = new List<Employee>();
 
 
-            Console.WriteLine("Employee Status: (Enter 1 for \"new\"; 2 for \"existing\")");
+            Console.WriteLine("Employee Status: (Enter 1 for \"New Employee\"; Enter 2 for \"NOT New Employee\"; Enter 3 for \"I Don't Understand The Question...\")"); 
             string employeeEntryNewOrNot = Console.ReadLine();
+
+
             int i = 1;
             if (employeeEntryNewOrNot == "1")
             {
-                EmployeeID = i;
+
+                string activeStatus = "Active";
+                string employeeID = Convert.ToString(i);
+               
+                Console.WriteLine("\n New Employee Successfully Added To DataBase: \n\n Employee Name:" + fullName + "\n Employee ID#: " + employeeID + "\n Employee Status: " + activeStatus);
+                Console.ReadLine();
                 i++;
-                string ActiveStatus = "Active";
-                Console.WriteLine("\n New Employee ID: " + EmployeeID + "\n Employee Status: " + ActiveStatus);
+            }
+            else if (employeeEntryNewOrNot == "2")
+            {
+                Console.WriteLine("Search Employee DataBase:\n\n You can search by ID# or Name \n\n Enter ID#:(if unknown, press <Enter>)");
+                string employeeSearchByID = Console.ReadLine();
+               
+                Console.WriteLine(" Enter Employee First Name: ");
+                string employeeSearchFirstName = Console.ReadLine();
+              
+                Console.WriteLine(" Enter Employee Last Name: ");
+                string employeeSearchLastName = Console.ReadLine();
+               
+                Console.WriteLine("\n\n\n  Search Feature Under Construction... Coming Soon !");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("I'm Not Sure We Can Help You... Live Green!!! Have A Nice Day!!!!!");
+                Console.ReadLine();
             }
         }
 
-        public void EmployeeEntry()
+        public void EmployeeDateOfEntry()
         {
-            var entryDate = DateTime.Now;
-            Console.WriteLine("\n Entry Date: " + entryDate);
+            string dateOfEntry = DateTime.Now.ToString("yyyy mm dd");
+            Console.WriteLine("\n Entry Date: " + dateOfEntry);
+            Console.ReadLine();
         }
 
-        public void GetName()
+        public void PrintEmployees()
         {
-
-            Console.WriteLine("Enter Employee Fist Name: ");
-            string FirstName = Console.ReadLine();
-
-            Console.WriteLine("Enter Employee Last Name: ");
-            string LastName = Console.ReadLine();
-
-            SayName();
+            Console.WriteLine();
         }
+
+
+
+
 
         public override void SayName()
         {
-            var fullName = FirstName + " " + LastName;
+
+            Console.WriteLine("Enter Employee Fist Name: ");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter Employee Last Name: ");
+            string lastName = Console.ReadLine();
+
+            fullName = firstName + " " + lastName;
+
             Console.WriteLine(fullName + " has been entered into the system");
+            Console.ReadLine();
         }
 
 
 
-
-        //    new Employee(){EmployeeID,firstName,lastName, activeStatus, entryDate}
-        //  }
-
         public void Quit()
         {
-            Console.WriteLine("Is " + FirstName + " " + LastName +
-                              " a current employee?\n Enter 1 for \"yes\" or 2 for \"no\"");
+            Console.WriteLine("Is " + fullName + " a current employee?\n Enter 1 for \"yes\" or 2 for \"no\"");
             string trueOrFalse = Console.ReadLine();
             if (trueOrFalse == "1")
             {
@@ -106,7 +135,9 @@ namespace step44_Interface_Assignment
 
             Console.ReadLine();
         }
+ 
     }
-}
+ 
+    }
 
-
+   

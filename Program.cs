@@ -5,7 +5,8 @@ using System.Linq.Expressions;
 using System.Runtime.Remoting.Services;
 using System.Text;
 using System.Threading.Tasks;
-using step44_Interface_Assignment;
+using step244_Interface_Assignment;
+using step244_Interfaces_Assignment;
 
 namespace step244_Interface_Assignment
 {
@@ -13,18 +14,31 @@ namespace step244_Interface_Assignment
     {
         static void Main(string[] args)
         {
-            Employee sampleEmployee = new Employee();
+            IQuittable sampleEmployee = new Employee();
 
-            sampleEmployee.FirstName = "Sample";
-            sampleEmployee.LastName = "Student";
+            this.FirstName = "Sample";
+            sampleEmployee.lastName = "Student";
 
             sampleEmployee.SayName();
             Console.ReadLine();
 
             sampleEmployee.Quit();
             Console.ReadLine();
-            
+        
+
             Employee employee = new Employee();
+
+            employee.CreateEmployeeID();
+            Console.ReadLine();
+
+            employee.EmployeeDateOfEntry();
+            Console.ReadLine();
+
+            employee.SayName();
+            Console.ReadLine();
+
+            employee.Quit();
+            Console.ReadLine();
 
         }
 

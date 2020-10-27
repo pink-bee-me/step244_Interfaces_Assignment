@@ -8,8 +8,8 @@ namespace step244_Interfaces_Assignment
 {
     interface IUserInput
     {
-        void EmployeeEntry();
-        void GetName();
+        void EmployeeDateOfEntry();
+        void SayName();
 
 
     }

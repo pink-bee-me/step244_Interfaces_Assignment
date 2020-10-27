@@ -7,24 +7,17 @@ using System.Threading.Tasks;
 namespace step244_Interface_Assignment
 {
    public abstract class Person
-    {
-        
-        
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+   {
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string fullName { get; set; }
 
         public virtual void SayName()
         {
-            string fullName = FirstName + " " + LastName;
+            string fullName = firstName + " " + lastName;
             Console.WriteLine("Name of Person Added To System: " + fullName);
         }
 
-
-        
-
-
-
-
-        }
-    }
+   }
+}
 
